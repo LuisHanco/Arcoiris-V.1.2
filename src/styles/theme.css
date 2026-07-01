@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* FUENTES (compartidas) */
+  --font-family: "Poppins", Arial, sans-serif;
+
+  /* VALORES BASE (compartidos) */
+  --essential-background-color: #ffffff;
+  --essential-background-color-300: color-mix(
+    in hsl,
+    var(--essential-background-color),
+    white 40%
+  );
+  --essential-background-color-600: color-mix(
+    in hsl,
+    var(--essential-background-color),
+    black 15%
+  );
+  --text-primary-color: #f9f0f0;
+  --text-primary-color-500: #e1e4e6;
+  
+}
