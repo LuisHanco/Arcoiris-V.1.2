@@ -40,7 +40,7 @@ export default function RedesFlotantes({
       name: "WhatsApp",
       icon: <WhatsAppIcon sx={{ fontSize: { xs: "1.2rem", sm: "1.5rem" } }} />,
       color: "#25D366",
-      link: "https://wa.me/51986249212",
+      link: "https://wa.me/51966425975",
     },
     {
       name: "Facebook",

@@ -225,7 +225,7 @@ export default function ConvocatoriaDocente() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#003366", mt: 2 }}>
             <LocationOnIcon fontSize="small" sx={{ flexShrink: 0 }} />
             <Typography variant="body2" fontWeight="bold">
-              Local del Instituto “Arco Iris”: Tenería IV fracción II, altura del paradero Enaco San Sebastián, Cusco. (Cel. 986249212)
+              Local del Instituto “Arco Iris”: Urb. Tenería IV, fracción II, altura del paradero Enaco San Sebastián, Cusco. (Cel. 966425975)
             </Typography>
           </Box>
         </Paper>

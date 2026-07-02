@@ -400,7 +400,7 @@ export default function Contacto() {
                   </IconButton>
                   <IconButton
                     component="a"
-                    href="https://wa.me/51986249212"
+                    href="https://wa.me/51966425975"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
@@ -701,7 +701,7 @@ export default function Contacto() {
               lineHeight={1.6}
               sx={{ fontSize: "clamp(0.8rem, 1.2vw, 0.875rem)" }}
             >
-              Tenería 4 Fracción II Enaco San Sebastián. Ubicados en una zona
+              Urb. Tenería IV, Fracción II - Paradero Enaco, San Sebastián. Ubicados en una zona
               accesible para toda nuestra comunidad estudiantil.
             </Typography>
 
