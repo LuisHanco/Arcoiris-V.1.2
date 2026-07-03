@@ -18,7 +18,8 @@ import ad2 from "../assets/Anuncios/laboral.webp";
 import ad3 from "../assets/Anuncios/apertura2026_1.webp";
 import ad4 from "../assets/Anuncios/campeon.webp";
 import ad5 from "../assets/Anuncios/examen_simulacro.webp";
-import ad6 from "../assets/Anuncios/lapre_2026-II.webp"
+import ad6 from "../assets/Anuncios/lapre_2026-II.webp";
+import ad7 from "../assets/Anuncios/admision-2026-2.webp"
 
 const Transition = forwardRef((props, ref) => (
   <Slide direction="up" ref={ref} {...props} />
@@ -35,6 +36,9 @@ export default function ModalAnuncios({
 
   const anuncios = [
     {
+      img: ad7,
+    },
+    {
       img: ad6,
     },
     {
@@ -42,10 +46,10 @@ export default function ModalAnuncios({
       link: "/admision",
       btnText: "Ver Resultados",
     },
-    {
-      img: ad2,
-      link: "/eventos",
-    },
+    // {
+    //   img: ad2,
+    //   link: "/eventos",
+    // },
     {
       img: ad3,
     },

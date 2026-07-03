@@ -12,7 +12,7 @@ import {
   Chip,
   Button,
 } from "@mui/material";
-import { Link } from "react-router-dom"; // <-- Importamos Link
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -40,7 +40,7 @@ export default function Unidades() {
     });
   }, []);
 
-  // --- DATOS: UNIDADES PRINCIPALES (Zig-Zag Layout) ---
+  // --- DATOS: UNIDADES PRINCIPALES ---
   const unidadesPrincipales = [
     {
       title: "Unidad Académica",
@@ -55,10 +55,11 @@ export default function Unidades() {
         "Gestionar la programación académica semestral y la asignación de la carga horaria a los docentes.",
         "Implementar estrategias para la mejora continua de la calidad educativa.",
       ],
-      icon: (
-        <SchoolIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }} />
-      ),
-      img: "https://cdn.create.vista.com/api/media/small/81223284/stock-photo-group-of-young-graduates",
+      icon: <SchoolIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop", // Aula / Académico
+      hasButton: true,
+      buttonLink: "/unidad_academica", 
+      buttonText: "Ver Documentos de la Unidad",
     },
     {
       title: "Unidad de Investigación e Innovación",
@@ -73,12 +74,11 @@ export default function Unidades() {
         "Establecer y fortalecer alianzas estratégicas con otras instituciones y centros de investigación.",
         "Fomentar una cultura de investigación e innovación en la comunidad educativa.",
       ],
-      icon: (
-        <BiotechIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }} />
-      ),
-      img: "https://cdn.create.vista.com/api/media/small/81223284/stock-photo-group-of-young-graduates",
+      icon: <BiotechIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop", // Investigación
       hasButton: true,
-      buttonLink: "/Unidad_investigacion", // <-- Añadimos la ruta de destino aquí
+      buttonLink: "/Unidad_investigacion", 
+      buttonText: "Ver más sobre Investigación",
     },
     {
       title: "Bienestar Estudiantil y Empleabilidad",
@@ -93,12 +93,8 @@ export default function Unidades() {
         "Organizar actividades deportivas, culturales y recreativas.",
         "Brindar atención de primeros auxilios y orientación en salud básica.",
       ],
-      icon: (
-        <Diversity3Icon
-          sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }}
-        />
-      ),
-      img: "https://cdn.create.vista.com/api/media/small/81223284/stock-photo-group-of-young-graduates",
+      icon: <Diversity3Icon sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop", // Estudiantes
     },
     {
       title: "Unidad de Formación Continua",
@@ -113,16 +109,12 @@ export default function Unidades() {
         "Establecer convenios con institutions y empresas para programas conjuntos.",
         "Evaluar la pertinencia y el impacto de los programas ofrecidos.",
       ],
-      icon: (
-        <TrendingUpIcon
-          sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }}
-        />
-      ),
-      img: "https://cdn.create.vista.com/api/media/small/81223284/stock-photo-group-of-young-graduates",
+      icon: <TrendingUpIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=800&auto=format&fit=crop", // Profesionales estudiando
     },
   ];
 
-  // --- DATOS: OFICINAS ADMINISTRATIVAS (Grid Layout) ---
+  // --- DATOS: OFICINAS ADMINISTRATIVAS ---
   const oficinasAdministrativas = [
     {
       title: "Oficina de Administración",
@@ -137,12 +129,8 @@ export default function Unidades() {
         "Mantener y conservar la infraestructura y el equipamiento.",
         "Elaborar informes de gestión económica y financiera.",
       ],
-      icon: (
-        <BusinessCenterIcon
-          sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }}
-        />
-      ),
-      img: "",
+      icon: <BusinessCenterIcon sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop", // Oficina / Administración
     },
     {
       title: "Oficina de Calidad",
@@ -157,10 +145,8 @@ export default function Unidades() {
         "Capacitar a la comunidad educativa en temas de cultura de calidad.",
         "Elaborar y actualizar los manuales y procedimientos de calidad.",
       ],
-      icon: (
-        <VerifiedIcon sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }} />
-      ),
-      img: "",
+      icon: <VerifiedIcon sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop", // Trabajo en equipo / Calidad
     },
     {
       title: "Asesoría Normativa",
@@ -175,10 +161,8 @@ export default function Unidades() {
         "Atender consultas legales de la comunidad educativa.",
         "Representar a la institución en procesos administrativos o judiciales.",
       ],
-      icon: (
-        <GavelIcon sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }} />
-      ),
-      img: "",
+      icon: <GavelIcon sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600&auto=format&fit=crop", // Leyes / Asesoría
     },
     {
       title: "Secretaría General",
@@ -193,12 +177,8 @@ export default function Unidades() {
         "Apoyar en la organización y ejecución de los procesos de matrícula.",
         "Gestionar la correspondencia y comunicaciones de la institución.",
       ],
-      icon: (
-        <AssignmentTurnedInIcon
-          sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }}
-        />
-      ),
-      img: "",
+      icon: <AssignmentTurnedInIcon sx={{ fontSize: { xs: 28, md: 35 }, color: "#007BFF" }} />,
+      img: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=600&auto=format&fit=crop", // Documentos / Organización
     },
   ];
 
@@ -433,10 +413,11 @@ export default function Unidades() {
                     ))}
                   </List>
 
+                  {/* DISEÑO DEL BOTÓN ORIGINAL (Outlined) */}
                   {unidad.hasButton && (
                     <Button
-                      component={Link} // <-- Convertimos el botón en Link
-                      to={unidad.buttonLink} // <-- Navega a /Unidad_investigacion
+                      component={Link}
+                      to={unidad.buttonLink}
                       variant="outlined"
                       sx={{
                         mt: 2,
@@ -448,7 +429,7 @@ export default function Unidades() {
                         "&:hover": { bgcolor: "rgba(0, 123, 255, 0.05)" },
                       }}
                     >
-                      Ver más sobre Investigación
+                      {unidad.buttonText} 
                     </Button>
                   )}
                 </Grid>
@@ -458,6 +439,7 @@ export default function Unidades() {
         </Container>
       </Box>
 
+      {/* SECCIÓN OFICINAS ADMINISTRATIVAS */}
       <Box
         sx={{
           bgcolor: "#003366ec",
