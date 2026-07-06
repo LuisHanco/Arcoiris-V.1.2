@@ -28,6 +28,7 @@ import ConvocatoriaDocente from "./Pages/ConvocatoriaDocente";
 import HorarioLaboratorio from "./Pages/HorarioLaboratorio";
 import TesisSustentadas from "./Pages/TesisSustentadas";
 import MuralAcademico from "./Pages/MuralAcademico";
+import GaleriaInstitucional from "./Pages/GaleriaInstitucional";
 
 const DocumentosGestion = lazy(() => import("./Pages/Documentos_gestion"));
 const UnidadInvestigacion = lazy(() => import("./Pages/Unidad_investigacion"));
@@ -64,6 +65,7 @@ export default function App() {
           <Route path="laboratorio" element={<HorarioLaboratorio />} />
           <Route path="tesis-sustentadas" element={<TesisSustentadas />} />
           <Route path="unidad_academica" element={<MuralAcademico />} />
+          <Route path="/galeria" element={<GaleriaInstitucional />} />
           
 
           {/* RUTAS CON CARGA PEREZOSA (LAZY) */}

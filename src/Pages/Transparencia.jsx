@@ -124,7 +124,7 @@ export default function Transparencia() {
       title: "Proyecto Curricular Institucional (PCI)",
       url: "https://drive.google.com/file/d/1SVNYH__I-lM5EX0OQ2dA5cnUUitRms8m/view",
     },
-    { title: "Cuadro de Horas Pedagógicas", url: "URL_DEL_PDF_AQUI" },
+    // { title: "Cuadro de Horas Pedagógicas", url: "URL_DEL_PDF_AQUI" },
     {
       title: "Manual de Procesos Institucionales (MPI)",
       url: "https://drive.google.com/file/d/1H-ufC9SlVUd7-Rn6xfHYYPRxy0z6qqmp/view",
@@ -1089,7 +1089,7 @@ export default function Transparencia() {
           </Grid>
 
           {/* 6. Estadísticas */}
-          <Grid
+          {/* <Grid
             size={{ xs: 12, md: 6, lg: 6 }}
             component={motion.div}
             variants={fadeUp}
@@ -1153,10 +1153,10 @@ export default function Transparencia() {
                 </Button>
               </Box>
             </Box>
-          </Grid>
+          </Grid> */}
 
           {/* 7. Inversiones y Obras */}
-          <Grid
+          {/* <Grid
             size={{ xs: 12, md: 6, lg: 6 }}
             component={motion.div}
             variants={fadeUp}
@@ -1221,7 +1221,7 @@ export default function Transparencia() {
                 </Button>
               </Box>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
 
