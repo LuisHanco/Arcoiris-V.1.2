@@ -65,7 +65,7 @@ export default function App() {
           <Route path="laboratorio" element={<HorarioLaboratorio />} />
           <Route path="tesis-sustentadas" element={<TesisSustentadas />} />
           <Route path="unidad_academica" element={<MuralAcademico />} />
-          <Route path="/galeria" element={<GaleriaInstitucional />} />
+          <Route path="galeria" element={<GaleriaInstitucional />} />
           
 
           {/* RUTAS CON CARGA PEREZOSA (LAZY) */}

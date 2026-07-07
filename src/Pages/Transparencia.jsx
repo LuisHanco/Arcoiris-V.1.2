@@ -124,7 +124,8 @@ export default function Transparencia() {
       title: "Proyecto Curricular Institucional (PCI)",
       url: "https://drive.google.com/file/d/1SVNYH__I-lM5EX0OQ2dA5cnUUitRms8m/view",
     },
-    // { title: "Cuadro de Horas Pedagógicas", url: "URL_DEL_PDF_AQUI" },
+    { title: "Cuadro de Horas Pedagógicas",
+       url: "https://drive.google.com/file/d/1LXKkwXcBDIkhj2krZ9QRGap-aSxCrTey/view" },
     {
       title: "Manual de Procesos Institucionales (MPI)",
       url: "https://drive.google.com/file/d/1H-ufC9SlVUd7-Rn6xfHYYPRxy0z6qqmp/view",
@@ -132,7 +133,9 @@ export default function Transparencia() {
   ];
 
   const docsMarcoLegalPoliticas = [
-    { title: "Reglamento de Investigación", url: "https://drive.google.com/file/d/1Ig7nc9LbsiBJlXGDoxPtBL__hMLtIa_d/view" },
+    { title: "Reglamento de Investigación", 
+      url: "https://drive.google.com/file/d/1Ig7nc9LbsiBJlXGDoxPtBL__hMLtIa_d/view" 
+    },
     {
       title: "Resolución de Funcionamiento Institucional",
       url: "https://drive.google.com/file/d/1Z9dLWZmho126u5roqlwVRn--RwnbOZ-l/view",
@@ -153,7 +156,7 @@ export default function Transparencia() {
 
   const docsEconomiaBecas = [
     { title: "Bases y Requisitos para Becas 2025", url: "URL_DEL_PDF_AQUI" },
-    { title: "Resultados de Convocatorias de Becas", url: "URL_DEL_PDF_AQUI" },
+    { title: "Resultados de Convocatorias de Becas", url: "https://drive.google.com/file/d/1XhcPFLkmlnBMjrXChte4Yyz1DqbSZwuU/view" },
   ];
 
   const docsAcademicaProgramas = [
