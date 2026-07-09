@@ -110,7 +110,7 @@ export default function Transparencia() {
   const docsMarcoLegalGestion = [
     {
       title: "Proyecto Educativo Institucional (PEI)",
-      url: "https://drive.google.com/file/d/1nMJIoxwkvyWe59jOaNTs5NVGV_AGVqnF/view",
+      url: "https://drive.google.com/file/d/1HJWKPxWCMxFVZD8Ajvn40xcfHEw7m2Rk/view",
     },
     {
       title: "Reglamento Institucional (RI)",
