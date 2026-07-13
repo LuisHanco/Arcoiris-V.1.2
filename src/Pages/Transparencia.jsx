@@ -150,12 +150,12 @@ export default function Transparencia() {
     },
     {
       title: "Derechos, Tasas y Pensiones Vigentes (Tarifario)",
-      url: "https://drive.google.com/file/d/11YaXdaWl6u0funMS2xSTLxW7tETId6Cw/view",
+      url: "https://drive.google.com/file/d/17O36HIziJwn9rzAGQOwGB1DQVS16jOF-/view",
     },
   ];
 
   const docsEconomiaBecas = [
-    { title: "Bases y Requisitos para Becas 2025", url: "URL_DEL_PDF_AQUI" },
+    { title: "Bases y Requisitos para Becas 2026", url: "URL_DEL_PDF_AQUI" },
     { title: "Resultados de Convocatorias de Becas", url: "https://drive.google.com/file/d/1XhcPFLkmlnBMjrXChte4Yyz1DqbSZwuU/view" },
   ];
 
