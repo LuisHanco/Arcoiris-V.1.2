@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom"; // Importamos Link para la navegación
 import {
   Box,
   Container,
@@ -15,11 +16,13 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Íconos existentes
 import PaletteIcon from "@mui/icons-material/Palette";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import EventIcon from "@mui/icons-material/Event";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import FestivalIcon from "@mui/icons-material/Festival";
+import PolicyRoundedIcon from '@mui/icons-material/PolicyRounded';
 
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import WeekendIcon from "@mui/icons-material/Weekend";
@@ -39,6 +42,13 @@ import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Diversity1Icon from "@mui/icons-material/Diversity1";
 
+// Nuevos íconos para la sección de Árbitros
+import SportsRoundedIcon from '@mui/icons-material/SportsRounded';
+import VerifiedUserRoundedIcon from '@mui/icons-material/VerifiedUserRounded';
+import QrCodeScannerRoundedIcon from '@mui/icons-material/QrCodeScannerRounded';
+import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
+
+// Imágenes
 import FondoEstudiantes from "../assets/Imagenes/Formacion1.webp";
 import Estudiantes1 from "../assets/Imagenes/Alumnos1.webp";
 import BolsaLaboral from "../assets/Imagenes/laboral.webp";
@@ -56,6 +66,7 @@ export default function Estudiantes() {
 
   return (
     <Box sx={{ bgcolor: "#F0F2F5", overflow: "hidden" }}>
+      {/* 1. HERO SECTION */}
       <Box
         sx={{
           position: "relative",
@@ -119,6 +130,7 @@ export default function Estudiantes() {
         </Container>
       </Box>
 
+      {/* 2. TÍTULO PRINCIPAL */}
       <Container
         maxWidth="lg"
         sx={{
@@ -149,6 +161,7 @@ export default function Estudiantes() {
         />
       </Container>
 
+      {/* 3. VIDA ESTUDIANTIL */}
       <Container maxWidth="lg" sx={{ py: { xs: 5, md: 8 } }}>
         <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
           <Grid size={{ xs: 12, md: 6 }} data-aos="fade-right">
@@ -283,6 +296,7 @@ export default function Estudiantes() {
         </Grid>
       </Container>
 
+      {/* 4. BIBLIOTECA */}
       <Box
         sx={{
           bgcolor: "#ffffff",
@@ -423,6 +437,7 @@ export default function Estudiantes() {
         </Container>
       </Box>
 
+      {/* 5. BOLSA DE TRABAJO */}
       <Box
         sx={{
           bgcolor: "#003366",
@@ -540,28 +555,132 @@ export default function Estudiantes() {
                   </Grid>
                 ))}
               </Grid>
-
-              {/*<Button
-                variant="contained"
-                size="large"
-                sx={{
-                  bgcolor: "#007BFF",
-                  color: "#fff",
-                  borderRadius: "30px",
-                  px: { xs: 3, md: 4 },
-                  py: { xs: 1.2, md: 1.5 },
-                  fontWeight: "bold",
-                  width: { xs: "100%", sm: "auto" },
-                  "&:hover": { bgcolor: "#0069d9" },
-                }}
-              >
-                Regístrate en nuestra plataforma
-              </Button>*/}
             </Grid>
           </Grid>
         </Container>
       </Box>
 
+     
+
+      {/* 7. NUEVA SECCIÓN: COMISIÓN DE ÁRBITROS ESTUDIANTILES */}
+      <Box
+        sx={{
+          bgcolor: "#ffffff",
+          py: { xs: 8, md: 10 },
+          borderTop: "1px solid #eaeaea",
+          borderBottom: "1px solid #eaeaea",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid
+            container
+            spacing={{ xs: 5, md: 6 }}
+            alignItems="center"
+            direction={{ xs: "column-reverse", md: "row-reverse" }}
+          >
+            <Grid size={{ xs: 12, md: 6 }} data-aos="fade-left">
+              <Typography
+                variant="overline"
+                color="#007BFF"
+                fontWeight="bold"
+                letterSpacing={2}
+                sx={{ fontSize: "clamp(0.75rem, 1.5vw, 1rem)" }}
+              >
+                LIDERAZGO Y DISCIPLINA
+              </Typography>
+              <Typography
+                variant="h3"
+                fontWeight="900"
+                color="#003366"
+                mb={2}
+                sx={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+              >
+                Comisión de Árbitros Estudiantiles
+              </Typography>
+              <Typography
+                variant="body1"
+                color="#555"
+                mb={4}
+                textAlign="justify"
+                sx={{ fontSize: "clamp(1rem, 2vw, 1.1rem)" }}
+              >
+                Como parte de nuestra formación integral, fomentamos el liderazgo, la toma de decisiones y el juego limpio a través de nuestra Comisión Oficial de Árbitros. Nuestros estudiantes están altamente capacitados para dirigir encuentros deportivos.
+              </Typography>
+
+              <Grid container spacing={2} mb={5}>
+                {[
+                  {
+                    icon: <SportsRoundedIcon />,
+                    text: "Formación especializada en reglas de juego (Fútbol, Futsal, etc).",
+                  },
+                  {
+                    icon: <WorkspacePremiumRoundedIcon />,
+                    text: "Acreditación oficial para dirigir eventos intra y extra institucionales.",
+                  },
+                  {
+                    icon: <VerifiedUserRoundedIcon />,
+                    text: "Carnet de identificación oficial con sistema de verificación QR.",
+                  },
+                ].map((item, idx) => (
+                  <Grid size={{ xs: 12 }} key={idx}>
+                    <Box sx={{ display: "flex", gap: 2, alignItems: "center", bgcolor: "#F8FAFC", p: 2, borderRadius: "12px", border: "1px solid #E2E8F0" }}>
+                      <Box sx={{ color: "#007BFF" }}>{item.icon}</Box>
+                      <Typography variant="body2" color="#334155" fontWeight="600" sx={{ fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)" }}>
+                        {item.text}
+                      </Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+
+              {/* BOTÓN DE ENLACE A LA PÁGINA DE VERIFICACIÓN */}
+              <Button
+                component={Link}
+                to="/verificar-arbitros"
+                variant="contained"
+                size="large"
+                startIcon={<QrCodeScannerRoundedIcon />}
+                sx={{
+                  bgcolor: "#003366",
+                  color: "#fff",
+                  borderRadius: "16px",
+                  px: { xs: 3, md: 4 },
+                  py: { xs: 1.5, md: 1.8 },
+                  fontWeight: "900",
+                  width: { xs: "100%", sm: "auto" },
+                  boxShadow: "0 10px 20px rgba(0, 51, 102, 0.2)",
+                  "&:hover": { bgcolor: "#001F3F", transform: "translateY(-3px)", boxShadow: "0 15px 25px rgba(0, 51, 102, 0.3)" },
+                  transition: "all 0.3s ease"
+                }}
+              >
+                Verificar Carnet de Árbitro
+              </Button>
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }} data-aos="fade-right">
+              {/* Composición visual tipo credencial/QR para hacerlo atractivo */}
+              <Box sx={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", height: { xs: "350px", md: "500px" } }}>
+                <Box sx={{ position: "absolute", width: "90%", height: "90%", borderRadius: "30px", bgcolor: "#EFF6FF", border: "2px dashed #BFDBFE", zIndex: 0 }} />
+                
+                <Paper sx={{ p: 4, borderRadius: "24px", bgcolor: "#fff", boxShadow: "0 20px 40px rgba(0,0,0,0.1)", zIndex: 1, textAlign: "center", maxWidth: "320px", border: "1px solid #E2E8F0" }}>
+                  <PolicyRoundedIcon sx={{ fontSize: 80, color: "#C59B27", mb: 2 }} />
+                  <Typography variant="h5" fontWeight="900" color="#003366" mb={1} textTransform="uppercase">
+                    Sistema de Validación
+                  </Typography>
+                  <Typography variant="body2" color="#64748B" mb={3}>
+                    Escanea el código QR del carnet físico o ingresa el DNI para verificar la autenticidad del árbitro.
+                  </Typography>
+                  <Box sx={{ p: 2, bgcolor: "#F8FAFC", borderRadius: "12px", border: "1px solid #E2E8F0", display: "flex", justifyContent: "center" }}>
+                    <QrCodeScannerRoundedIcon sx={{ fontSize: 100, color: "#003366", opacity: 0.8 }} />
+                  </Box>
+                </Paper>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+       {/* 6. BIENESTAR ESTUDIANTIL */}
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
         <Grid container spacing={{ xs: 6, md: 6 }} alignItems="center">
           <Grid size={{ xs: 12, md: 6 }} data-aos="fade-right">
@@ -640,22 +759,6 @@ export default function Estudiantes() {
                 </ListItem>
               ))}
             </List>
-
-            {/*<Button
-              variant="outlined"
-              sx={{
-                color: "#003366",
-                borderColor: "#003366",
-                borderRadius: "20px",
-                px: { xs: 2, md: 3 },
-                py: { xs: 1, md: 1.5 },
-                fontWeight: "bold",
-                width: { xs: "100%", sm: "auto" },
-                "&:hover": { bgcolor: "rgba(0, 51, 102, 0.05)" },
-              }}
-            >
-              Contáctanos para agendar cita
-            </Button>*/}
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }} data-aos="zoom-in-left">
@@ -749,8 +852,9 @@ export default function Estudiantes() {
         </Grid>
       </Container>
 
+      {/* 8. BANNER FINAL */}
       <Box
-        sx={{ bgcolor: "#F0F2F5", pb: { xs: 6, md: 10 }, px: { xs: 2, sm: 0 } }}
+        sx={{ bgcolor: "#F0F2F5", pb: { xs: 6, md: 10 }, pt: { xs: 6, md: 10 }, px: { xs: 2, sm: 0 } }}
       >
         <Container maxWidth="md">
           <Paper
