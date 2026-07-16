@@ -48,7 +48,6 @@ const baseDatosArbitros = [
   { codigo: "ARB-2026-024", dni: "74949458", nombre: "LIDMAN GABRIEL LOPEZ HUANCA" },
   { codigo: "ARB-2026-025", dni: "73195119", nombre: "ZARATE PANTOJA PEPE HUMBERTO" },
   { codigo: "ARB-2026-026", dni: "72194590", nombre: "CHRISTIAN RODRIGUEZ MENDEZ" },
-  { codigo: "ARB-2026-027", dni: "70353062", nombre: "JEAN PIERRE GALICIA TINCO" }
 ].map(arb => ({
   ...arb,
   rango: "Árbitro Oficial Autorizado",
