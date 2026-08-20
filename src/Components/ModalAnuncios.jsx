@@ -38,27 +38,27 @@ export default function ModalAnuncios({
     {
       img: ad7,
     },
-    {
-      img: ad6,
-    },
-    {
-      img: ad1,
-      link: "/admision",
-      btnText: "Ver Resultados",
-    },
+    // {
+    //   img: ad6,
+    // },
+    // {
+    //   img: ad1,
+    //   link: "/admision",
+    //   btnText: "Ver Resultados",
+    // },
     // {
     //   img: ad2,
     //   link: "/eventos",
     // },
-    {
-      img: ad3,
-    },
+    // {
+    //   img: ad3,
+    // },
     {
       img: ad4,
     },
-    {
-      img: ad5,
-    },
+    // {
+    //   img: ad5,
+    // },
     
   ];
 

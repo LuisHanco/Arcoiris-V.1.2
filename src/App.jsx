@@ -25,6 +25,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 // --- IMPORTACIONES DE CONVOCATORIAS ---
 import Convocatorias from "./Pages/Convocatorias";
 import ConvocatoriaDocente from "./Pages/ConvocatoriaDocente";
+import ConvocatoriaDocente2 from "./Pages/Docentes2026II"
 import HorarioLaboratorio from "./Pages/HorarioLaboratorio";
 import TesisSustentadas from "./Pages/TesisSustentadas";
 import MuralAcademico from "./Pages/MuralAcademico";
@@ -63,6 +64,7 @@ export default function App() {
           {/* --- NUEVAS RUTAS DE CONVOCATORIAS --- */}
           <Route path="convocatorias" element={<Convocatorias />} />
           <Route path="convocatorias/docentes-2026" element={<ConvocatoriaDocente />} />
+          <Route path="convocatorias/docentes-2026-II" element={<ConvocatoriaDocente2 />} />
           <Route path="laboratorio" element={<HorarioLaboratorio />} />
           <Route path="tesis-sustentadas" element={<TesisSustentadas />} />
           <Route path="unidad_academica" element={<MuralAcademico />} />
