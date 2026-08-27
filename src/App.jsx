@@ -22,15 +22,18 @@ import Servicios from "./Pages/Servicios";
 import NotFound from "./Components/NotFound";
 import ScrollToTop from "./Components/ScrollToTop";
 
-// --- IMPORTACIONES DE CONVOCATORIAS ---
+// --- IMPORTACIONES DE CONVOCATORIAS Y NUEVAS PÁGINAS ---
 import Convocatorias from "./Pages/Convocatorias";
 import ConvocatoriaDocente from "./Pages/ConvocatoriaDocente";
-import ConvocatoriaDocente2 from "./Pages/Docentes2026II"
+import ConvocatoriaDocente2 from "./Pages/Docentes2026II";
 import HorarioLaboratorio from "./Pages/HorarioLaboratorio";
 import TesisSustentadas from "./Pages/TesisSustentadas";
 import MuralAcademico from "./Pages/MuralAcademico";
 import GaleriaInstitucional from "./Pages/GaleriaInstitucional";
-import VerificacionArbitros from './pages/VerificacionArbitros'; // Ajusta la ruta a donde guardaste el archivo
+import VerificacionArbitros from './Pages/VerificacionArbitros';
+
+// Importamos la nueva página de Resultados con el nombre exacto
+import PortalResultados from './Pages/PortalResultados'; 
 
 const DocumentosGestion = lazy(() => import("./Pages/Documentos_gestion"));
 const UnidadInvestigacion = lazy(() => import("./Pages/Unidad_investigacion"));
@@ -61,7 +64,7 @@ export default function App() {
           <Route path="ReservaComp" element={<ReservaComp />} />
           <Route path="AdminReserva" element={<AdminReservaComp />} />
           
-          {/* --- NUEVAS RUTAS DE CONVOCATORIAS --- */}
+          {/* --- NUEVAS RUTAS --- */}
           <Route path="convocatorias" element={<Convocatorias />} />
           <Route path="convocatorias/docentes-2026" element={<ConvocatoriaDocente />} />
           <Route path="convocatorias/docentes-2026-II" element={<ConvocatoriaDocente2 />} />
@@ -71,7 +74,9 @@ export default function App() {
           <Route path="galeria" element={<GaleriaInstitucional />} />
           <Route path="verificar-arbitros" element={<VerificacionArbitros />} />
           
-
+          {/* Ruta del nuevo portal de Resultados */}
+          <Route path="resultados" element={<PortalResultados />} />
+          
           {/* RUTAS CON CARGA PEREZOSA (LAZY) */}
           <Route
             path="Documentos_gestion"

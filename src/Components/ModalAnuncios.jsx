@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 
-import ad1 from "../assets/Anuncios/resultados_2026_1.webp";
+import ad1 from "../assets/Anuncios/resultados_simulacro-2026-2.webp";
 import ad2 from "../assets/Anuncios/laboral.webp";
 import ad3 from "../assets/Anuncios/apertura2026_1.webp";
 import ad4 from "../assets/Anuncios/campeon.webp";
@@ -34,18 +34,28 @@ export default function ModalAnuncios({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  // ARREGLO DE ANUNCIOS ACTUALIZADO
   const anuncios = [
     {
+      img: ad1,
+      link: "/resultados",
+      btnText: "Ver Resultados",
+    },
+    {
       img: ad7,
+    },
+    {
+      img: ad5, // Imagen del examen (simulacro / admisión)
+     //  link: "/resultados", Asegúrate de tener esta ruta creada en tu App.js / Router
+      // btnText: "Ver Resultados",
+    },
+    {
+      img: ad4,
     },
     // {
     //   img: ad6,
     // },
-    // {
-    //   img: ad1,
-    //   link: "/admision",
-    //   btnText: "Ver Resultados",
-    // },
+    
     // {
     //   img: ad2,
     //   link: "/eventos",
@@ -53,13 +63,6 @@ export default function ModalAnuncios({
     // {
     //   img: ad3,
     // },
-    {
-      img: ad4,
-    },
-    // {
-    //   img: ad5,
-    // },
-    
   ];
 
   useEffect(() => {
@@ -68,6 +71,7 @@ export default function ModalAnuncios({
     const timer = setTimeout(() => setOpen(true), delaySegundos * 1000);
     return () => clearTimeout(timer);
   }, [location.pathname, delaySegundos]);
+  
   useEffect(() => {
     if (location.pathname !== "/") {
       setOpen(false);
@@ -99,13 +103,13 @@ export default function ModalAnuncios({
           borderRadius: { xs: "16px", md: "24px" },
           bgcolor: "#000",
           maxWidth: "750px",
-  width: "90vw",
-  "@media (min-width:1024px)": {
-    width: "500px",
-  },
-  "@media (min-width:1440px)": {
-    width: "900px",
-  },
+          width: "90vw",
+          "@media (min-width:1024px)": {
+            width: "500px",
+          },
+          "@media (min-width:1440px)": {
+            width: "900px",
+          },
           height: { xs: "auto", md: "80vh" },
           aspectRatio: { xs: "1 / 1", md: "auto" },
           maxHeight: { xs: "80vh", md: "90vh" },
