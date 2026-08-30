@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Box, Container, Typography, Paper, MenuItem, Select, FormControl, 
-  Button, Grid, Dialog, DialogTitle, DialogContent, IconButton
+  Button, Dialog, DialogTitle, DialogContent, IconButton, Stack
 } from "@mui/material";
 import AssignmentTurnedInRoundedIcon from '@mui/icons-material/AssignmentTurnedInRounded';
 import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
@@ -10,7 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // =======================================================================
-// BASE DE DATOS DE RESULTADOS (ENLACES A GOOGLE DRIVE)
+// BASE DE DATOS DE RESULTADOS (SOPORTA MÚLTIPLES PDFs POR EXAMEN)
 // =======================================================================
 const baseDatosResultados = {
   "simulacro-2026-ii": {
@@ -19,22 +19,38 @@ const baseDatosResultados = {
     fechaPublicacion: "24 de Agosto, 2026",
     descripcion: "Resultados generales del examen de simulacro para los programas de Educación Física y Educación Inicial.",
     estado: "publicado",
-    // IMPORTANTE: Usa "preview" al final del enlace de Drive en lugar de "view"
-    driveEnlace: "https://drive.google.com/file/d/1Duov2_E_DELGwPaVyD69onEZFGO2AIiT/preview" 
+    documentos: [
+      {
+        nombre: "Ver Resultados Generales (Simulacro)",
+        driveEnlace: "https://drive.google.com/file/d/TU_ENLACE_DEL_SIMULACRO_AQUI/preview" 
+      }
+    ]
   },
   "admision-2026-ii": {
     id: "admision-2026-ii",
     titulo: "Examen de Admisión General 2026-II",
-    fechaPublicacion: "Próximamente",
-    descripcion: "Los resultados oficiales del examen de admisión se publicarán en esta sección una vez culminado el proceso de evaluación.",
-    estado: "pendiente",
-    driveEnlace: ""
+    fechaPublicacion: "29 de Agosto, 2026",
+    descripcion: "Resultados oficiales (Fase I - Examen de Conocimiento) para los programas de Educación Inicial y Educación Física.",
+    estado: "publicado", // Pasó de "pendiente" a "publicado"
+    documentos: [
+      {
+        nombre: "Resultados - Educación Inicial",
+        // PEGA AQUÍ EL ENLACE DE DRIVE DEL PDF DE INICIAL (Asegúrate que termine en /preview)
+        driveEnlace: "https://drive.google.com/file/d/1osxEpsmU6tzEAEF-RUKB9p-m1jR_9CG3/preview" 
+      },
+      {
+        nombre: "Resultados - Educación Física",
+        // PEGA AQUÍ EL ENLACE DE DRIVE DEL PDF DE FÍSICA (Asegúrate que termine en /preview)
+        driveEnlace: "https://drive.google.com/file/d/1zCaTHA5o_yWqiIPP_LpMr3FW9hIBpP7h/preview" 
+      }
+    ]
   }
 };
 
 export default function PortalResultados() {
-  const [examenSeleccionado, setExamenSeleccionado] = useState("simulacro-2026-ii");
-  const [modalOpen, setModalOpen] = useState(false);
+  // Ahora iniciamos por defecto en el examen de admisión, ya que es el más reciente
+  const [examenSeleccionado, setExamenSeleccionado] = useState("admision-2026-ii");
+  const [pdfActivo, setPdfActivo] = useState(null); // Guardará el documento que se va a mostrar en el modal
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -43,6 +59,10 @@ export default function PortalResultados() {
 
   const handleExamenChange = (event) => {
     setExamenSeleccionado(event.target.value);
+  };
+
+  const cerrarModal = () => {
+    setPdfActivo(null);
   };
 
   const examenData = baseDatosResultados[examenSeleccionado];
@@ -98,6 +118,7 @@ export default function PortalResultados() {
             </Select>
           </FormControl>
 
+          {/* ÁREA DE INFORMACIÓN Y BOTONES DE DOCUMENTOS */}
           <Box sx={{ textAlign: "center", p: { xs: 3, md: 5 }, bgcolor: examenData.estado === "publicado" ? "#F8FAFC" : "#FFFBEB", borderRadius: "20px", border: "1px dashed", borderColor: examenData.estado === "publicado" ? "#CBD5E1" : "#F59E0B" }}>
             <AssignmentTurnedInRoundedIcon sx={{ fontSize: 60, color: examenData.estado === "publicado" ? "#10B981" : "#F59E0B", mb: 2 }} />
             
@@ -114,18 +135,24 @@ export default function PortalResultados() {
             </Typography>
 
             {examenData.estado === "publicado" ? (
-              <Button 
-                onClick={() => setModalOpen(true)}
-                variant="contained" 
-                size="large"
-                startIcon={<PictureAsPdfRoundedIcon />}
-                sx={{ 
-                  borderRadius: "16px", bgcolor: "#DC2626", fontWeight: "900", px: 4, py: 1.5, textTransform: "none", fontSize: "1.1rem",
-                  boxShadow: "0 10px 20px rgba(220, 38, 38, 0.25)", "&:hover": { bgcolor: "#B91C1C", transform: "translateY(-3px)" }, transition: "all 0.3s"
-                }}
-              >
-                Abrir Documento Oficial
-              </Button>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" flexWrap="wrap" useFlexGap>
+                {/* Aquí renderizamos dinámicamente todos los documentos de este examen */}
+                {examenData.documentos.map((doc, index) => (
+                  <Button 
+                    key={index}
+                    onClick={() => setPdfActivo(doc)}
+                    variant="contained" 
+                    size="large"
+                    startIcon={<PictureAsPdfRoundedIcon />}
+                    sx={{ 
+                      borderRadius: "16px", bgcolor: "#DC2626", fontWeight: "900", px: 4, py: 1.5, textTransform: "none", fontSize: "1rem",
+                      boxShadow: "0 10px 20px rgba(220, 38, 38, 0.25)", "&:hover": { bgcolor: "#B91C1C", transform: "translateY(-3px)" }, transition: "all 0.3s"
+                    }}
+                  >
+                    {doc.nombre}
+                  </Button>
+                ))}
+              </Stack>
             ) : (
               <Button 
                 disabled
@@ -143,34 +170,37 @@ export default function PortalResultados() {
 
       {/* 3. MODAL DEL VISOR DE PDF (GOOGLE DRIVE) */}
       <Dialog 
-        open={modalOpen} 
-        onClose={() => setModalOpen(false)} 
+        open={Boolean(pdfActivo)} 
+        onClose={cerrarModal} 
         maxWidth="lg" 
         fullWidth
         PaperProps={{ sx: { borderRadius: "16px", overflow: "hidden", height: "90vh", bgcolor: "#f1f1f1" } }}
       >
         <DialogTitle sx={{ bgcolor: "#001F3F", color: "#fff", p: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Typography variant="subtitle1" fontWeight="bold" display="flex" alignItems="center" gap={1}>
-            <PictureAsPdfRoundedIcon sx={{ color: "#FCA5A5" }} /> {examenData.titulo}
+          <Typography variant="subtitle1" fontWeight="bold" display="flex" alignItems="center" gap={1} sx={{ pr: 2 }}>
+            <PictureAsPdfRoundedIcon sx={{ color: "#FCA5A5" }} /> 
+            {pdfActivo ? pdfActivo.nombre : "Documento Oficial"}
           </Typography>
-          <IconButton onClick={() => setModalOpen(false)} sx={{ color: "#fff", bgcolor: "rgba(255,255,255,0.1)", "&:hover": { bgcolor: "rgba(255,255,255,0.2)" } }}>
+          <IconButton onClick={cerrarModal} sx={{ color: "#fff", bgcolor: "rgba(255,255,255,0.1)", "&:hover": { bgcolor: "rgba(255,255,255,0.2)" } }}>
             <CloseRoundedIcon />
           </IconButton>
         </DialogTitle>
         
         <DialogContent sx={{ p: 0, overflow: "hidden" }}>
-          {examenData.driveEnlace ? (
+          {pdfActivo && pdfActivo.driveEnlace ? (
             <iframe 
-              src={examenData.driveEnlace} 
-              title="Visor PDF Resultados"
+              src={pdfActivo.driveEnlace} 
+              title={pdfActivo.nombre}
               width="100%" 
               height="100%" 
               style={{ border: "none" }}
               allow="autoplay"
             />
           ) : (
-            <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Typography color="error" fontWeight="bold">Error: El enlace del documento no está configurado.</Typography>
+            <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", p: 4, textAlign: "center" }}>
+              <Typography color="error" fontWeight="bold">
+                Error: El enlace del documento de Google Drive no está configurado correctamente.
+              </Typography>
             </Box>
           )}
         </DialogContent>
