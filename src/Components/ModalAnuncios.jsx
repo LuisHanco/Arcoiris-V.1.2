@@ -51,7 +51,8 @@ export default function ModalAnuncios({
     {
       img: ad1,
       link: "/resultados",
-      btnText: "Ver Resultados",
+      btnText: "Ver Resultados",  
+      
     },
     {
       img: ad7,
