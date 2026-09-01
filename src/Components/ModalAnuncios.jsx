@@ -21,6 +21,7 @@ import ad5 from "../assets/Anuncios/examen_simulacro.webp";
 import ad6 from "../assets/Anuncios/lapre_2026-II.webp";
 import ad7 from "../assets/Anuncios/admision-2026-2.webp"
 import ad8 from "../assets/Anuncios/admision-2026-II.webp"
+import ad9 from "../assets/Anuncios/resultados-finales.webp"
 
 const Transition = forwardRef((props, ref) => (
   <Slide direction="up" ref={ref} {...props} />
@@ -37,6 +38,11 @@ export default function ModalAnuncios({
 
   // ARREGLO DE ANUNCIOS ACTUALIZADO
   const anuncios = [
+    {
+      img: ad9,
+      link: "/resultados",
+      btnText: "Ver Resultados",
+    },
     {
       img: ad8,
       link: "/resultados",

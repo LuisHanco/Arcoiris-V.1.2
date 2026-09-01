@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
   Box, Container, Typography, Paper, MenuItem, Select, FormControl, 
-  Button, Dialog, DialogTitle, DialogContent, IconButton, Stack
+  Button, Dialog, DialogTitle, DialogContent, IconButton, Stack, Alert
 } from "@mui/material";
 import AssignmentTurnedInRoundedIcon from '@mui/icons-material/AssignmentTurnedInRounded';
 import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -13,44 +14,70 @@ import "aos/dist/aos.css";
 // BASE DE DATOS DE RESULTADOS (SOPORTA MÚLTIPLES PDFs POR EXAMEN)
 // =======================================================================
 const baseDatosResultados = {
+  "admision-2026-ii-final": {
+    id: "admision-2026-ii-final",
+    titulo: "Resultados Finales de Admisión 2026-II",
+    fechaPublicacion: "30 de Agosto, 2026",
+    descripcion: (
+      <>
+        El Instituto de Educación Superior Pedagógico Privado “Arco Iris” - Cusco comunica a los postulantes y al público en general los resultados finales del Proceso de Admisión 2026-II, correspondiente a los programas de <strong>Educación Física</strong> y <strong>Educación Inicial</strong>.
+        <br/><br/>
+        Expresamos nuestra felicitación a todos los postulantes que alcanzaron una vacante y que, desde ahora, forman parte de nuestra comunidad educativa.
+      </>
+    ),
+    alerta: "Los ingresantes deberán acudir el lunes 31 de agosto de 2026 para su matrícula. Clases inician el 1 de septiembre. Regularización de documentos pendientes hasta el 31 de agosto.",
+    estado: "publicado",
+    documentos: [
+      {
+        nombre: "Acta Final - Educación Inicial",
+        // PEGA AQUÍ EL ENLACE DE DRIVE DEL PDF DE FASE II - INICIAL (Asegúrate que termine en /preview)
+        driveEnlace: "https://drive.google.com/file/d/19KpTxEtIRQw67Xh2xElj4KIlUuD5e8bK/preview" 
+      },
+      {
+        nombre: "Acta Final - Educación Física",
+        // PEGA AQUÍ EL ENLACE DE DRIVE DEL PDF DE FASE II - FISICA (Asegúrate que termine en /preview)
+        driveEnlace: "https://drive.google.com/file/d/1vE6xNP591tM_W2bYEJkDR9c3l2ttp4_s/preview" 
+      }
+    ]
+  },
+  "admision-2026-ii-fase1": {
+    id: "admision-2026-ii-fase1",
+    titulo: "Examen de Admisión 2026-II (Fase I)",
+    fechaPublicacion: "29 de Agosto, 2026",
+    descripcion: "Resultados oficiales (Fase I - Examen de Conocimiento) para los programas de Educación Inicial y Educación Física.",
+    alerta: null,
+    estado: "publicado",
+    documentos: [
+      {
+        nombre: "Resultados Fase I - Educación Inicial",
+        driveEnlace: "https://drive.google.com/file/d/1osxEpsmU6tzEAEF-RUKB9p-m1jR_9CG3/preview" 
+      },
+      {
+        nombre: "Resultados Fase I - Educación Física",
+        driveEnlace: "https://drive.google.com/file/d/1zCaTHA5o_yWqiIPP_LpMr3FW9hIBpP7h/preview" 
+      }
+    ]
+  },
   "simulacro-2026-ii": {
     id: "simulacro-2026-ii",
     titulo: "Examen Simulacro 2026-II",
     fechaPublicacion: "24 de Agosto, 2026",
     descripcion: "Resultados generales del examen de simulacro para los programas de Educación Física y Educación Inicial.",
+    alerta: null,
     estado: "publicado",
     documentos: [
       {
         nombre: "Ver Resultados Generales (Simulacro)",
-        driveEnlace: "https://drive.google.com/file/d/TU_ENLACE_DEL_SIMULACRO_AQUI/preview" 
-      }
-    ]
-  },
-  "admision-2026-ii": {
-    id: "admision-2026-ii",
-    titulo: "Examen de Admisión General 2026-II",
-    fechaPublicacion: "29 de Agosto, 2026",
-    descripcion: "Resultados oficiales (Fase I - Examen de Conocimiento) para los programas de Educación Inicial y Educación Física.",
-    estado: "publicado", // Pasó de "pendiente" a "publicado"
-    documentos: [
-      {
-        nombre: "Resultados - Educación Inicial",
-        // PEGA AQUÍ EL ENLACE DE DRIVE DEL PDF DE INICIAL (Asegúrate que termine en /preview)
-        driveEnlace: "https://drive.google.com/file/d/1osxEpsmU6tzEAEF-RUKB9p-m1jR_9CG3/preview" 
-      },
-      {
-        nombre: "Resultados - Educación Física",
-        // PEGA AQUÍ EL ENLACE DE DRIVE DEL PDF DE FÍSICA (Asegúrate que termine en /preview)
-        driveEnlace: "https://drive.google.com/file/d/1zCaTHA5o_yWqiIPP_LpMr3FW9hIBpP7h/preview" 
+        driveEnlace: "https://drive.google.com/file/d/1Duov2_E_DELGwPaVyD69onEZFGO2AIiT/preview" 
       }
     ]
   }
 };
 
 export default function PortalResultados() {
-  // Ahora iniciamos por defecto en el examen de admisión, ya que es el más reciente
-  const [examenSeleccionado, setExamenSeleccionado] = useState("admision-2026-ii");
-  const [pdfActivo, setPdfActivo] = useState(null); // Guardará el documento que se va a mostrar en el modal
+  // Ahora iniciamos por defecto en los Resultados Finales (es lo más importante hoy)
+  const [examenSeleccionado, setExamenSeleccionado] = useState("admision-2026-ii-final");
+  const [pdfActivo, setPdfActivo] = useState(null); 
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -83,7 +110,7 @@ export default function PortalResultados() {
             </Typography>
           </Box>
           <Typography variant="h2" fontWeight="900" color="#fff" mb={2} sx={{ fontSize: { xs: "2.2rem", md: "3.5rem" }, textTransform: "uppercase" }}>
-            Resultados de Exámenes
+            Resultados Oficiales
           </Typography>
           <Typography variant="h6" color="#CBD5E1" fontWeight="400" sx={{ fontSize: { xs: "1rem", md: "1.2rem" }, px: 2 }}>
             Consulta las actas y resoluciones de calificaciones de manera oficial y transparente.
@@ -122,21 +149,31 @@ export default function PortalResultados() {
           <Box sx={{ textAlign: "center", p: { xs: 3, md: 5 }, bgcolor: examenData.estado === "publicado" ? "#F8FAFC" : "#FFFBEB", borderRadius: "20px", border: "1px dashed", borderColor: examenData.estado === "publicado" ? "#CBD5E1" : "#F59E0B" }}>
             <AssignmentTurnedInRoundedIcon sx={{ fontSize: 60, color: examenData.estado === "publicado" ? "#10B981" : "#F59E0B", mb: 2 }} />
             
-            <Typography variant="h5" fontWeight="900" color="#0F172A" mb={1}>
+            <Typography variant="h5" fontWeight="900" color="#0F172A" mb={2}>
               {examenData.titulo}
             </Typography>
             
-            <Typography variant="body1" color="#64748B" mb={1}>
+            <Typography variant="body1" component="div" color="#475569" mb={3} sx={{ lineHeight: 1.6 }}>
               {examenData.descripcion}
             </Typography>
+
+            {/* Alerta del Comunicado Oficial (Solo se muestra si hay alerta) */}
+            {examenData.alerta && (
+              <Alert 
+                icon={<InfoRoundedIcon fontSize="inherit" />} 
+                severity="info" 
+                sx={{ mb: 4, textAlign: "left", borderRadius: "12px", bgcolor: "#EFF6FF", color: "#1E3A8A", border: "1px solid #BFDBFE", fontWeight: "600" }}
+              >
+                {examenData.alerta}
+              </Alert>
+            )}
             
-            <Typography variant="subtitle2" color={examenData.estado === "publicado" ? "#003366" : "#B45309"} fontWeight="bold" mb={4}>
+            <Typography variant="subtitle2" color={examenData.estado === "publicado" ? "#64748B" : "#B45309"} fontWeight="bold" mb={4}>
               Fecha de publicación: {examenData.fechaPublicacion}
             </Typography>
 
             {examenData.estado === "publicado" ? (
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" flexWrap="wrap" useFlexGap>
-                {/* Aquí renderizamos dinámicamente todos los documentos de este examen */}
                 {examenData.documentos.map((doc, index) => (
                   <Button 
                     key={index}
