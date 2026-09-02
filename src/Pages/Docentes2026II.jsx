@@ -47,14 +47,15 @@ export default function Docentes2026II() {
     }
   ];
 
+  // Fechas adaptadas al mes de septiembre para coincidir con la evaluación reciente
   const cronograma = [
-    { fecha: "Del 12 al 17 de Agosto", actividad: "Publicación de la Convocatoria", estado: "completado" },
-    { fecha: "Del 12 al 17 de Agosto", actividad: "Recepción de Expedientes", estado: "completado" },
-    { fecha: "18 de Agosto", actividad: "Evaluación de Expedientes", estado: "completado" },
-    { fecha: "19 de Agosto", actividad: "Publicación de Postulantes Aptos", estado: "completado" },
-    { fecha: "20 y 21 de Agosto", actividad: "Entrevista Personal", estado: "actual" },
-    { fecha: "24 de Agosto", actividad: "Publicación de Resultados Finales", estado: "pendiente" },
-    { fecha: "26 de Agosto", actividad: "Firma de Contrato", estado: "pendiente" }
+    { fecha: "Del 26 al 28 de Agosto", actividad: "Publicación de la Convocatoria", estado: "completado" },
+    { fecha: "Del 26 al 28 de Agosto", actividad: "Recepción de Expedientes", estado: "completado" },
+    { fecha: "31 de Agosto", actividad: "Evaluación de Expedientes", estado: "completado" },
+    { fecha: "1 de Septiembre", actividad: "Publicación de Postulantes Aptos", estado: "completado" },
+    { fecha: "2 y 3 de Septiembre", actividad: "Entrevista Personal", estado: "actual" },
+    { fecha: "4 de Septiembre", actividad: "Publicación de Resultados Finales", estado: "pendiente" },
+    { fecha: "7 de Septiembre", actividad: "Firma de Contrato", estado: "pendiente" }
   ];
 
   const anexos = [
@@ -66,13 +67,11 @@ export default function Docentes2026II() {
   ];
 
   const resultadosEvaluacion = [
-    { id: 1, postulante: "Bach. Tamayo Davalos Tania Verónica", plaza: "Educación Inicial", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con la Experiencia Mínima en Educación Básica Regular", "No cuenta con la Experiencia Mínima en Educación Superior"] },
-    { id: 2, postulante: "Lic. Zuñiga Condori Carolina", plaza: "Educación Inicial", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con la Experiencia Mínima en Educación Básica Regular"] },
-    { id: 3, postulante: "Mtra. Quispe Rojas Ilce Tongshi", plaza: "Educación Inicial", estado: "No Apto", observaciones: ["No cuenta con la Experiencia Mínima en Educación Superior"] },
-    { id: 4, postulante: "Bach. Ponce De León Diaz Myrian", plaza: "-", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con la Experiencia Mínima en Educ"] },
-    { id: 5, postulante: "Prof. Huallpa Pillco Fatima", plaza: "Educación Inicial", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con la Experiencia Mínima en Educación Superior"] },
-    { id: 6, postulante: "Prof. Gutierrez Diaz Epifanio Martín", plaza: "Educación Física", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU"] },
-    { id: 7, postulante: "Lic. Serrano Florez Oscar", plaza: "Educación Física", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con la Experiencia Mínima en Educación Superior"] },
+    { id: 1, postulante: "Bach. Yana Quispe Javier", plaza: "Educación Física", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con la Experiencia Minima en Educación Superior"] },
+    { id: 2, postulante: "Mtra. Mercado Machaca Katya", plaza: "Educación Inicial", estado: "No Apto", observaciones: ["No cuenta con la Especialidad para el PE Educación Inicial"] },
+    { id: 3, postulante: "Mtra. Pino Loaiza Lulia Beliña", plaza: "Educación Inicial y Primaria", estado: "No Apto", observaciones: ["No cuenta con la Experiencia Minima en Educación Basica Regular", "No cuenta con la Experiencia Minima en Educación Superior"] },
+    { id: 4, postulante: "Lic. Castilla Enciso Heldy Guadalupe", plaza: "Educación Inicial y Primaria", estado: "No Apto", observaciones: ["No cuenta con Maestría inscrita en SUNEDU", "No cuenta con el perfil requerido para el PE Educación Inicial"] },
+    { id: 5, postulante: "Mtra. Challanca Huillca Fany Odaliz", plaza: "Educación Lengua y Literatura", estado: "No Apto", observaciones: ["No cuenta con el perfil requerido para el PE Educación Inicial"] }
   ];
 
   return (
@@ -133,7 +132,6 @@ export default function Docentes2026II() {
             Perfiles profesionales requeridos para el desarrollo del semestre académico 2026-II.
           </Typography>
 
-          {/* FIX 1: overflowX: "auto" permite el scroll en celulares sin romper el diseño */}
           <TableContainer sx={{ border: "1px solid #E2E8F0", borderRadius: "16px", overflowX: "auto", overflowY: "hidden", bgcolor: "#fff" }}>
             <Table sx={{ minWidth: 650 }}>
               <TableHead sx={{ bgcolor: "#F1F5F9" }}>
@@ -175,7 +173,6 @@ export default function Docentes2026II() {
           </TableContainer>
         </Paper>
 
-        {/* FIX 2: Reducido el spacing en celulares de 6 a 4 */}
         <Grid container spacing={{ xs: 4, md: 6 }}>
           
           {/* 3. CRONOGRAMA DE ACTIVIDADES */}
@@ -194,7 +191,6 @@ export default function Docentes2026II() {
                 return (
                   <Box key={index} sx={{ position: "relative", pl: { xs: 4, md: 5 }, mb: index === cronograma.length - 1 ? 0 : 3 }}>
                     
-                    {/* FIX 3: Ajustado el 'top' para que el punto no se caiga en celulares */}
                     <Box sx={{
                       position: "absolute", left: 0, 
                       top: { xs: "36px", sm: "50%" }, 
@@ -312,7 +308,6 @@ export default function Docentes2026II() {
               A continuación se presenta el cuadro oficial con los resultados de la evaluación de expedientes.
             </Typography>
 
-            {/* FIX 4: La segunda tabla también es responsive ahora */}
             <TableContainer sx={{ border: "1px solid #BAE6FD", borderRadius: "16px", overflowX: "auto", overflowY: "hidden", bgcolor: "#fff" }}>
               <Table sx={{ minWidth: 800 }}>
                 <TableHead sx={{ bgcolor: "#E0F2FE" }}>
