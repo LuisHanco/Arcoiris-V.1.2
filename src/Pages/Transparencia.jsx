@@ -110,31 +110,31 @@ export default function Transparencia() {
   const docsMarcoLegalGestion = [
     {
       title: "Proyecto Educativo Institucional (PEI)",
-      url: "https://drive.google.com/file/d/1HJWKPxWCMxFVZD8Ajvn40xcfHEw7m2Rk/view",
+      url: "https://drive.google.com/file/d/1PUK0mmM_LqoUhv0qYeqUHgF7M83mDhxM/view",
     },
     {
       title: "Reglamento Institucional (RI)",
-      url: "https://drive.google.com/file/d/1XPO7v_hZBTmUAKu3twzVwZIosihIM4M1/view",
+      url: "https://drive.google.com/file/d/17agFZTRd3IVId34ddolEVpI4HyXy1EID/view",
     },
     {
       title: "Plan Anual de Trabajo (PAT)",
-      url: "https://drive.google.com/file/d/1LXV22VpEPvVipzZ4Pk-ZIWGAbQJkpcQe/view",
+      url: "https://drive.google.com/file/d/1w0oppnLarq5EWPFtybF-2FBbwE0n4-zm/view",
     },
     {
       title: "Proyecto Curricular Institucional (PCI)",
-      url: "https://drive.google.com/file/d/1SVNYH__I-lM5EX0OQ2dA5cnUUitRms8m/view",
+      url: "https://drive.google.com/file/d/1PXNTk9Z3bv8tECr8Zs5nwGp7gVv0yJMw/view",
     },
     { title: "Cuadro de Horas Pedagógicas",
        url: "https://drive.google.com/file/d/1LXKkwXcBDIkhj2krZ9QRGap-aSxCrTey/view" },
     {
       title: "Manual de Procesos Institucionales (MPI)",
-      url: "https://drive.google.com/file/d/1H-ufC9SlVUd7-Rn6xfHYYPRxy0z6qqmp/view",
+      url: "https://drive.google.com/file/d/1ZWO4_HRsmjM-UzUqjv3BB6RKShpqPooo/view",
     },
   ];
 
   const docsMarcoLegalPoliticas = [
     { title: "Reglamento de Investigación", 
-      url: "https://drive.google.com/file/d/1Ig7nc9LbsiBJlXGDoxPtBL__hMLtIa_d/view" 
+      url: "https://drive.google.com/file/d/1K52LqOWIIwLCdBoiEe-uS5jZpl5rvbgT/view" 
     },
     {
       title: "Resolución de Funcionamiento Institucional",
@@ -194,14 +194,14 @@ export default function Transparencia() {
       url: "/Directorio", // <-- Ruta interna a la página del directorio
       isRoute: true       // <-- Indicador clave
     },
-    {
-      title: "Cuadro de Asignación de Personal Administrativo (CAP 2025)",
-      url: "URL_DEL_PDF_AQUI",
-    },
-    {
-      title: "Cuadro de Asignación de Personal Docente (CAP 2025)",
-      url: "URL_DEL_PDF_AQUI",
-    },
+    // {
+    //   title: "Cuadro de Asignación de Personal Administrativo (CAP 2025)",
+    //   url: "URL_DEL_PDF_AQUI",
+    // },
+    // {
+    //   title: "Cuadro de Asignación de Personal Docente (CAP 2025)",
+    //   url: "URL_DEL_PDF_AQUI",
+    // },
   ];
 
   const docsRRHHCVs = [
