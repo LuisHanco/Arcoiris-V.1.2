@@ -31,6 +31,7 @@ import TesisSustentadas from "./Pages/TesisSustentadas";
 import MuralAcademico from "./Pages/MuralAcademico";
 import GaleriaInstitucional from "./Pages/GaleriaInstitucional";
 import VerificacionArbitros from './Pages/VerificacionArbitros';
+import EventosInstitucionales from './Pages/EventosInstitucionales';
 
 // Importamos la nueva página de Resultados con el nombre exacto
 import PortalResultados from './Pages/PortalResultados'; 
@@ -73,6 +74,7 @@ export default function App() {
           <Route path="unidad_academica" element={<MuralAcademico />} />
           <Route path="galeria" element={<GaleriaInstitucional />} />
           <Route path="verificar-arbitros" element={<VerificacionArbitros />} />
+          <Route path="/eventos" element={<EventosInstitucionales />} />
           
           {/* Ruta del nuevo portal de Resultados */}
           <Route path="resultados" element={<PortalResultados />} />
