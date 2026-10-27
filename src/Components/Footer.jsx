@@ -141,7 +141,8 @@ export default function Footer() {
                 { label: "Transparencia", path: "/transparencia" },
                 // { label: "Reclamaciones", path: "/reclamaciones" },
                 { label: "Convocatorias", path: "/convocatorias" },
-                { label: "Laboratorio de Cómputo", path: "/laboratorio" }
+                { label: "Laboratorio de Cómputo", path: "/laboratorio" },
+                { label: "Eventos Institucionales", path: "/eventos" }
               ].map((item) => (
                 <Typography
                   key={item.label}
