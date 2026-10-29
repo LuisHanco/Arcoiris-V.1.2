@@ -23,6 +23,7 @@ import ad7 from "../assets/Anuncios/admision-2026-2.webp";
 import ad8 from "../assets/Anuncios/admision-2026-II.webp";
 import ad9 from "../assets/Anuncios/resultados-finales.webp";
 import ad10 from "../assets/Anuncios/titulacion.webp";
+import ad11 from "../assets/Anuncios/11_concurso.webp";
 
 
 const Transition = forwardRef((props, ref) => (
@@ -40,6 +41,12 @@ export default function ModalAnuncios({
 
   // ARREGLO DE ANUNCIOS ACTUALIZADO
   const anuncios = [
+    
+    {
+      img: ad11,
+      link:"/eventos",
+      btnText:"Ver Lista",
+    },
     {
       img: ad10,
     },
